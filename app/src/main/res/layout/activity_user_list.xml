@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+                name="adapter"
+                type="com.github.andrei1993ak.mentoring.koin.ui.list.UserAdapter"/>
+
+        <variable
+                name="layoutManager"
+                type="android.support.v7.widget.LinearLayoutManager"/>
+
+        <variable
+                name="dividerItemDecoration"
+                type="android.support.v7.widget.DividerItemDecoration"/>
+
+        <variable
+                name="progressVisibility"
+                type="Integer"/>
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/posts"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:adapter="@{adapter}"
+                app:dividerItemDecoration="@{dividerItemDecoration}"
+                app:layoutManager="@{layoutManager}"/>
+
+        <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="@{safeUnbox(progressVisibility)}"
+                android:layout_gravity="center"/>
+    </FrameLayout>
+</layout>
